@@ -49,7 +49,7 @@ public abstract class MeanConfidenceInterval {
 	 * @return the frequency: the number of mean samples within the interval divided
 	 *         by the number of mean computations
 	 */
-	public double frequenceOfInterval(int numberOfMeanComputations, double confidenceLevel) {
+	public double frequencyOfInterval(int numberOfMeanComputations, double confidenceLevel) {
 		// TODO implement the method
 		return 0.;
 	}

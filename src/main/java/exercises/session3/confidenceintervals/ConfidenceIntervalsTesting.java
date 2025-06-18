@@ -7,7 +7,7 @@ import exercises.session2.randomvariables.RandomVariableInterface;
 
 /**
  * This class provides some experiment for the calculation of confidence
- * intervals based on the Central Limit Theorem and on the Chebychev inequality
+ * intervals based on the Central Limit Theorem and on the Chebyshev inequality
  */
 public class ConfidenceIntervalsTesting {
 
@@ -36,12 +36,12 @@ public class ConfidenceIntervalsTesting {
 		System.out.println(confidenceLevel + " ".repeat(15) + "\tChebyshev\t" + sampleSize  + " ".repeat(5) + "\t"
 				+ formatterValue.format(chebychevIntervalCalculator.getLowerBoundConfidenceInterval(confidenceLevel)) + " ".repeat(5) + "\t"
 				+ formatterValue.format(chebychevIntervalCalculator.getUpperBoundConfidenceInterval(confidenceLevel))  + " ".repeat(5) + "\t"
-				+ formatterPercentage.format(chebychevIntervalCalculator.frequenceOfInterval(numberOfMeanComputations, confidenceLevel))
+				+ formatterPercentage.format(chebychevIntervalCalculator.frequencyOfInterval(numberOfMeanComputations, confidenceLevel))
 				);
 		System.out.println(confidenceLevel + " ".repeat(15) + "\tCLT" + " ".repeat(10) + "\t" + sampleSize + " ".repeat(5) + "\t"
 				+ formatterValue.format(cLTIntervalCalculator.getLowerBoundConfidenceInterval(confidenceLevel))  + " ".repeat(5) + "\t"
 				+ formatterValue.format(cLTIntervalCalculator.getUpperBoundConfidenceInterval(confidenceLevel))  + " ".repeat(5) + "\t"
-				+ formatterPercentage.format(cLTIntervalCalculator.frequenceOfInterval(numberOfMeanComputations, confidenceLevel))
+				+ formatterPercentage.format(cLTIntervalCalculator.frequencyOfInterval(numberOfMeanComputations, confidenceLevel))
 				);
 	}
 }
