@@ -25,7 +25,7 @@ public class ConfidenceIntervalsTesting {
 		 * intervals for the sample mean of size given by sampleSize.
 		 */
 		RandomVariableInterface exponential = new ExponentialRandomVariable(lambda);
-		// with Chebychev inequality
+		// with Chebyshev inequality
 		ChebychevMeanConfidenceInterval chebychevIntervalCalculator = new ChebychevMeanConfidenceInterval(exponential,
 				sampleSize);
 		// and with the Central Limit Theorem

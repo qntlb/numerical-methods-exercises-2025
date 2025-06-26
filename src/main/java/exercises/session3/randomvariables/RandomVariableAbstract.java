@@ -84,8 +84,7 @@ public abstract class RandomVariableAbstract implements RandomVariableInterface 
 	}
 
 	public double[] generateBivariate() {
-		// TODO implement the method
-		return new double[] {0., 0.};
+		return new double[] { generate(), generate() };
 	}
 	
 	/*
@@ -96,26 +95,34 @@ public abstract class RandomVariableAbstract implements RandomVariableInterface 
 	 * the random variable.
 	 */
 	private void generateValues(int n, DoubleUnaryOperator function) {
-		// TODO implement the method
+		randomVariableRealizationsFunction = new double[n];
+		for (int i = 0; i < n; i++) {
+			randomVariableRealizationsFunction[i] = generate(function);// generation of the new realization
+		}
 	}
 	
 	
 	@Override
 	public double getSampleMean(int n, DoubleUnaryOperator function) {
-		// TODO implement the method
-		return 0.;
+		generateValues(n, function);
+		double mean = UsefulMethodsMatricesAndVectors.getAverage(randomVariableRealizationsFunction);
+		return mean;
 	}
 
 	@Override
 	public double getSampleStdDeviation(int n, DoubleUnaryOperator function) {
-		// TODO implement the method
-		return 0.;
+		generateValues(n, function);
+		double standardDeviation = UsefulMethodsMatricesAndVectors
+				.getStandardDeviation(randomVariableRealizationsFunction);
+		return standardDeviation;
 	}
 	
 	@Override
 	public double getSampleMeanWithWeightedMonteCarlo(int n, DoubleUnaryOperator function,
 			RandomVariableInterface otherRandomVariable) {
-		// TODO implement the method
-		return 0.;
+		DoubleUnaryOperator weight = x -> (getDensityFunction(x)// the one of the "original" random variable
+				/ otherRandomVariable.getDensityFunction(x));
+		DoubleUnaryOperator whatToSample = (x -> function.applyAsDouble(x) * weight.applyAsDouble(x));
+		return otherRandomVariable.getSampleMean(n, whatToSample);
 	}
 }
