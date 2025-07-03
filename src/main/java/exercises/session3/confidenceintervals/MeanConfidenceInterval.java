@@ -51,9 +51,9 @@ public abstract class MeanConfidenceInterval {
 	 */
 	public double frequencyOfInterval(int numberOfMeanComputations, double confidenceLevel) {
 		double numberOfTimesInsideTheInterval = 0;
-		// computed with CLT or Chebychev depending on the object calling
+		// computed with CLT or Chebyshev depending on the object calling
 		double lowerBound = getLowerBoundConfidenceInterval(confidenceLevel);
-		// computed with CLT or Chebychev depending on the object calling
+		// computed with CLT or Chebyshev depending on the object calling
 		double upperBound = getUpperBoundConfidenceInterval(confidenceLevel);
 
 		double sampleMean;

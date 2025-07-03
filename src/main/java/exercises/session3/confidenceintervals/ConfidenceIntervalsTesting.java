@@ -17,9 +17,9 @@ public class ConfidenceIntervalsTesting {
 
 	public static void main(String[] args) {
 		double lambda = 0.2;
-		int numberOfMeanComputations = 100; // 10000;
+		int numberOfMeanComputations = 100;
 		int sampleSize = 100000;
-		double confidenceLevel = 0.9;
+		double confidenceLevel = 0.95;
 		/*
 		 * exponentially distributed random variables: we want to compute the confidence
 		 * intervals for the sample mean of size given by sampleSize.

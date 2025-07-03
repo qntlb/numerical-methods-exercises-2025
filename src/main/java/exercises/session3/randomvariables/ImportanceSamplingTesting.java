@@ -42,8 +42,8 @@ public class ImportanceSamplingTesting {
 		// number of times when the error of importance sampling is lower
 		int numberOfWinsImportanceSampling = 0;
 
-		double sumPercentualErrorStandardSampling = 0.0;
-		double sumPercentualErrorImportanceSampling = 0.0;
+		double sumPercentageErrorStandardSampling = 0.0;
+		double sumPercentageErrorImportanceSampling = 0.0;
 
 		for (int i = 0; i < numberOfTests; i++) {
 
@@ -58,8 +58,8 @@ public class ImportanceSamplingTesting {
 			final double errorImportanceSampling = Math.abs(resultImportanceSampling - analyticResult) / analyticResult;
 
 			// we update the sum
-			sumPercentualErrorStandardSampling += errorStandardSampling;
-			sumPercentualErrorImportanceSampling += errorImportanceSampling;
+			sumPercentageErrorStandardSampling += errorStandardSampling;
+			sumPercentageErrorImportanceSampling += errorImportanceSampling;
 
 			// we check the winner
 			if (errorStandardSampling > errorImportanceSampling) {
@@ -68,8 +68,8 @@ public class ImportanceSamplingTesting {
 				numberOfWinsStandardSampling++;
 			}
 		}
-		double averagePercentualErrorStandardSampling = sumPercentualErrorStandardSampling / numberOfTests;
-		double averagePercentualErrorImportanceSampling = sumPercentualErrorImportanceSampling / numberOfTests;
+		double averagePercentageErrorStandardSampling = sumPercentageErrorStandardSampling / numberOfTests;
+		double averagePercentageErrorImportanceSampling = sumPercentageErrorImportanceSampling / numberOfTests;
 
 		// Printing the results
 
@@ -79,10 +79,10 @@ public class ImportanceSamplingTesting {
 		System.out.println();
 
 		System.out.println("The average percentage error of standard sampling is "
-				+ formatterPercentage.format(averagePercentualErrorStandardSampling));
+				+ formatterPercentage.format(averagePercentageErrorStandardSampling));
 
 		System.out.println("The average percentage error of importance sampling is "
-				+ formatterPercentage.format(averagePercentualErrorImportanceSampling));
+				+ formatterPercentage.format(averagePercentageErrorImportanceSampling));
 
 		System.out.println();
 

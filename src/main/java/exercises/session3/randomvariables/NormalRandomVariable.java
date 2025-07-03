@@ -131,8 +131,8 @@ public class NormalRandomVariable extends RandomVariableAbstract {
 		ExponentialRandomVariable exponential = new ExponentialRandomVariable(1.0);
 		do {// you do it at least once: example of do..while
 			// generation of uniformDrawing and exponentialDrawing
-			uniformDrawing = Math.random();// realization of a uniformly distribute random variable in (0,1)
 			exponentialDrawing = exponential.generate();// realization of exp random variable
+			uniformDrawing = Math.random();// realization of a uniformly distribute random variable in (0,1)
 		}
 		// rejected if u > f(y)/(C*g(y)), C = (2*e/pi)^1/2
 		while (uniformDrawing > Math.exp(-(exponentialDrawing - 1) * (exponentialDrawing - 1) / 2));
